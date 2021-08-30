@@ -39,7 +39,6 @@ class KnightPathFinder
             # ele.children = pos_children
             queue += pos_children
         end
-        queue
     end
 
     def new_move_positions(pos)
@@ -47,5 +46,9 @@ class KnightPathFinder
         new_arr = valid_positions.reject {|pos| @considered_positions.include?(pos)}
         @considered_positions += new_arr
         new_arr
+    end
+
+    def find_path(end_pos)
+
     end
 end 

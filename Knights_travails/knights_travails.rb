@@ -39,7 +39,6 @@ class KnightPathFinder
             pos_children.each { |node| ele.add_child(node) }
             queue += pos_children
         end
-        @root_node
     end
 
     def new_move_positions(pos)
@@ -47,6 +46,10 @@ class KnightPathFinder
         new_arr = valid_positions.reject {|pos| @considered_positions.include?(pos)}
         @considered_positions += new_arr
         new_arr
+    end
+
+    def find_path(end_pos)
+        @root_node.bfs(end_pos.value)
     end
 end 
 

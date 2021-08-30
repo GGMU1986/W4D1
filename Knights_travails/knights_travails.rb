@@ -29,11 +29,17 @@ class KnightPathFinder
         @considered_positions = [pos]
     end
    
-    def build_move_tree(pos)
-        queue = [pos]
-        
-        pos_children = new_move_positions(pos).map {|pos| PolyTreeNode.new(pos)}
-        queue << pos_children
+    def build_move_tree
+        queue = Set[@root_node]
+        until queue.empty?
+            ele = queue.shift
+            # return ele if ele.value == given_pos.value
+            pos_children = new_move_positions(ele).map {|pos| PolyTreeNode.new(pos)}
+            # pos_children.each { |node| node.parent = ele }
+            # ele.children = pos_children
+            queue += pos_children
+        end
+        raise "Given position not accessible from starting position"
     end
 
     def new_move_positions(pos)

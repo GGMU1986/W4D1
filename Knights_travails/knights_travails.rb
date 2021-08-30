@@ -49,6 +49,6 @@ class KnightPathFinder
     end
 
     def find_path(end_pos)
-
+        
     end
 end 

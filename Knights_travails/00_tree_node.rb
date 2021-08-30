@@ -49,6 +49,12 @@ class PolyTreeNode
         nil
     end
 
+    def inspect
+        {value => @value,
+        children => @children.map{|ele| ele.value},
+        parent => @parent}.inspect
+    end
+
 end
 
 
